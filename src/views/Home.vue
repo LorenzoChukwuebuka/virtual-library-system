@@ -117,6 +117,6 @@ export default {
 </script>
 <style scoped>
 .card{
-	box-shadow:20px; 
+		box-shadow:20px; 
 	}
 </style>

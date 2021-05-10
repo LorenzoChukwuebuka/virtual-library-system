@@ -69,6 +69,7 @@ export default {
   },
   methods: {
     // Fetch the book here
+    // I added this file probably push each file to a new page and make a call to DB to get the details
     // SAMPLE
     // let book_uri = `/api/books/${this.$route.params.bookname}`;
   },

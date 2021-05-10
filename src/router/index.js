@@ -6,6 +6,8 @@ import addDept from '../views/admin/addDept.vue'
 import uploads from '../views/admin/upload.vue'
 import category from '../views/admin/category.vue'
 import Userhome from '../views/user/home.vue'
+import SchoolFile from '../views/SchoolFile.vue'
+
 
 const routes = [
   {
@@ -62,6 +64,16 @@ const routes = [
     path: '/Userhome',
     name: 'Userhome',
     component: Userhome,
+    beforeEnter:(to, from, next) => {
+      const isAuthenticated = localStorage.getItem('Id') ? true: false;
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
+      else next();
+      } 
+  },
+  {
+    path: '/file',
+    name: 'SchoolFile',
+    component: SchoolFile,
     beforeEnter:(to, from, next) => {
       const isAuthenticated = localStorage.getItem('Id') ? true: false;
       if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })

@@ -12,6 +12,7 @@ import setting from '../views/user/settings.vue'
 import archive from '../views/user/archive.vue'
 
 
+
 const routes = [
   {
     path: '/',
@@ -114,6 +115,7 @@ const routes = [
       else next();
       } 
   },
+
   {
     path: '/about',
     name: 'About',

@@ -38,8 +38,9 @@
                 <div class="card blue">
                   <div class="card-content black-text">
                     <span class="card-title"> <h4>Books and Files </h4> </span>
-
-                    <ul class="collapsible popout">
+                    <span class="card-title"> <h4>Categories</h4> </span>
+					 
+					   <ul class="collapsible popout">
                       <li v-for="cat in category" :key="cat.Id">
                         <div
                           class="collapsible-header"
@@ -47,30 +48,31 @@
                         >
                           <i class="material-icons"> add </i> {{ cat.category }}
                         </div>
-                        <div class="collapsible-body">
-                          <ul class="collection" v-for="title in files" :key="title.Id">
-                            <li class="collection-item">
+                        <div class="collapsible-body black">
+                          <ul v-for="title in files" :key="title.Id">
+                            <li>
                               <router-link
                                 :to="{
                                   name: 'SchoolFile',
                                   params: {
                                     bookname: title.fileName,
-							
                                   },
                                 }"
                               >
-                                {{ title.Title }} || {{title.fileType}}
+                                {{ title.Title }} {{ title.Id }}
                               </router-link>
                             </li>
                           </ul>
                         </div>
                       </li>
                     </ul>
+				       
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
                  
 				 <!-- Journals -->
 
@@ -115,12 +117,11 @@
               </div>
             </div>
           </div>
- 
-
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  
 </template>
 <script>
 import axios from "axios";
@@ -136,6 +137,7 @@ export default {
     return {
       category: [],
       files: [],
+
 	  articles:[]
     };
   },
@@ -159,8 +161,9 @@ export default {
 	   .then(res=>{
 		   this.articles = res.data
 	   })
-	}
-   
+	},
+    getFileDet(id) {},
+
   },
 };
 </script>

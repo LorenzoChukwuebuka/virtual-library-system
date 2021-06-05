@@ -7,9 +7,9 @@
 	 
         <div class="row">
     <div class="col s6 offset-s3">
-      <div class="card grey ">
+      <div class="card grey z-depth-5">
         <div class="card-content black-text">
-          <span  class="card-title">Login</span>
+          <span  class="card-title">Login to IFT library to continue </span>
 
              <form >
                  <div class="row col s12">
@@ -117,6 +117,6 @@ export default {
 </script>
 <style scoped>
 .card{
-	box-shadow:20px; 
+		box-shadow:20px; 
 	}
 </style>

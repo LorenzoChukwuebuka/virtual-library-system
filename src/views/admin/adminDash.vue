@@ -145,7 +145,7 @@ methods:{
 			   M.toast({html:"school added successfully"})
                 setTimeout(() => {
                    location.reload()
-                 }, 2000);
+                 }, 1000);
 		   }
 
           
@@ -164,7 +164,7 @@ methods:{
                M.toast({html:"Deleted successfully"})
                  setTimeout(() => {
                    location.reload()
-                 }, 2000);
+                 }, 1000);
            }
        })
 	},
@@ -182,7 +182,7 @@ methods:{
 			    M.toast({html:"Updated successfully"})
                  setTimeout(() => {
                    location.reload()
-                 }, 2000);
+                 }, 1000);
 		   }
 	   })
 	   

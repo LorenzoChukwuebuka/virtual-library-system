@@ -163,7 +163,7 @@ export default {
                  M.toast({html:"Department added successfully"})
                  setTimeout(() => {
                    location.reload()
-                 }, 2000);
+                 }, 1000);
                }else{
 				   M.toast({html:"Department already exists"})
 			   }
@@ -191,7 +191,7 @@ export default {
 					M.toast({html:"Deleted successfully"})
 					  setTimeout(() => {
                    location.reload()
-                 }, 2000);
+                 }, 1000);
 				}
 			})
 		},
@@ -212,7 +212,7 @@ export default {
 				   M.toast({html:"updated successfully"})
 				     setTimeout(() => {
                    location.reload()
-                 }, 2000);
+                 }, 1000);
 			   }
 		   })
 		}

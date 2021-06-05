@@ -6,8 +6,13 @@
                <ul class="right hide-on-med-and-down">
                   <li class="active" > <a @click="home"> Home </a> </li>
                   
-                  <li> <a> About Us </a> </li>
-                  <li> <a> setting </a> </li>
+                  <li> <router-link :to ="{
+                      name: 'archive'
+                  }">   Archive  </router-link> </li>
+
+                  <li> <router-link :to ="{
+                      name: 'setting'
+                  }">  Setting </router-link> </li>
                   <li > <a @click="logOut"> <i class="material-icons"> exit_to_app </i></a> </li>
                </ul>
 			   </div>

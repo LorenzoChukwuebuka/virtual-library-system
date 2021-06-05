@@ -7,7 +7,7 @@
 	 
 	 <div class="row">
 		<div class="col s6 offset-s3">
-			<div class="card grey">
+			<div class="card grey z-depth-5">
 					<div class="card-content black-text">
 					<span class="card-title">Sign Up</span>
 						<form>

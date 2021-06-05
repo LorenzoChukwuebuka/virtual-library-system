@@ -6,6 +6,11 @@ import addDept from '../views/admin/addDept.vue'
 import uploads from '../views/admin/upload.vue'
 import category from '../views/admin/category.vue'
 import Userhome from '../views/user/home.vue'
+import SchoolFile from '../views/user/SchoolFile.vue'
+import articles from '../views/user/articles.vue'
+import setting from '../views/user/settings.vue'
+import archive from '../views/user/archive.vue'
+
 
 const routes = [
   {
@@ -62,6 +67,47 @@ const routes = [
     path: '/Userhome',
     name: 'Userhome',
     component: Userhome,
+    beforeEnter:(to, from, next) => {
+      const isAuthenticated = localStorage.getItem('Id') ? true: false;
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
+      else next();
+      } 
+  },
+  {
+    path: '/file',
+    name: 'SchoolFile',
+    component: SchoolFile,
+    beforeEnter:(to, from, next) => {
+      const isAuthenticated = localStorage.getItem('Id') ? true: false;
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
+      else next();
+      } 
+  },
+
+  {
+    path: '/articles',
+    name: 'articles',
+    component: articles,
+    beforeEnter:(to, from, next) => {
+      const isAuthenticated = localStorage.getItem('Id') ? true: false;
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
+      else next();
+      } 
+  },
+  {
+    path: '/setting',
+    name: 'setting',
+    component: setting,
+    beforeEnter:(to, from, next) => {
+      const isAuthenticated = localStorage.getItem('Id') ? true: false;
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
+      else next();
+      } 
+  },
+  {
+    path: '/archive',
+    name: 'archive',
+    component: archive,
     beforeEnter:(to, from, next) => {
       const isAuthenticated = localStorage.getItem('Id') ? true: false;
       if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })

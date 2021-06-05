@@ -1,8 +1,8 @@
 <template>
  
      <nav>
-		   <div class="nav-wrapper green ">
-			   <a class="brand-logo" @click="home"> Sign In </a>
+		   <div class="nav-wrapper black ">
+			   <a class="brand-logo" @click="home"> IFT virtual library  </a>
                <ul class="right hide-on-med-and-down">
                    <li > <a @click="redirect"> register panel </a> </li>
                </ul>

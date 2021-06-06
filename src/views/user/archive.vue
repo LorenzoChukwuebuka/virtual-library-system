@@ -50,9 +50,11 @@
                             <li class="collection-item">
 								  <router-link
                                 :to="{
-                                  name: 'articles',
+                                  name: 'archiveId',
                                   params: {
-                                    
+                                    title:arc.Title,
+									post:arc.post,
+									file:arc.file
 							
                                   },
                                 }"
@@ -138,5 +140,6 @@ methods:{
 .card-content {
   text-align: center;
 }
+ 
 
 </style>

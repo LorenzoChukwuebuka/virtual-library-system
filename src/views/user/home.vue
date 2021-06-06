@@ -38,7 +38,7 @@
                 <div class="card blue">
                   <div class="card-content black-text">
                     <span class="card-title"> <h4>Books and Files </h4> </span>
-                    <span class="card-title"> <h4>Categories</h4> </span>
+                    
 					 
 					   <ul class="collapsible popout">
                       <li v-for="cat in category" :key="cat.Id">
@@ -48,9 +48,9 @@
                         >
                           <i class="material-icons"> add </i> {{ cat.category }}
                         </div>
-                        <div class="collapsible-body black">
-                          <ul v-for="title in files" :key="title.Id">
-                            <li>
+                        <div class="collapsible-body">
+                          <ul class="collection" v-for="title in files" :key="title.Id">
+                            <li class="collection-item">
                               <router-link
                                 :to="{
                                   name: 'SchoolFile',
@@ -59,7 +59,7 @@
                                   },
                                 }"
                               >
-                                {{ title.Title }} {{ title.Id }}
+                                {{ title.Title }} || {{ title.fileType }}
                               </router-link>
                             </li>
                           </ul>

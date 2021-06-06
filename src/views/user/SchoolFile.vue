@@ -38,9 +38,9 @@
                 <div class="card blue">
                   <div class="card-content black-text">
                     <!-- Figure tis out too -->
-					  <video v-if="file_Uri" :src="file_Uri" controls="controls" style="width:100%;height:100%; border:none;"> </video>
-					  <iframe frameborder="0" v-else :src="pdf_uri" style="width:100%;height:100%; border:none;">  </iframe>
- 
+                  <video v-if="file_Uri" :src="file_Uri" controls="controls" style="width:100%;height:100%; border:none;"> </video>
+                  <iframe frameborder="0" v-else :src="pdf_uri" style="width:100%;height:100%; border:none;">  </iframe>
+      
                   </div>
                 </div>
               </div>

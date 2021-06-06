@@ -39,7 +39,7 @@
                   <div class="card-content white-text">
                     <!-- Figure tis out too -->
                       <h4 style="text-align:center;"> {{title}} </h4>
-				          <p>   {{post}}   </p> 
+				               <p>   {{post}}   </p> 
  
                   </div>
                 </div>
@@ -81,3 +81,16 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+#home {
+  background-image: url("~@/assets/img/libray.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 70vh;
+}
+#home .container .header {
+  top: 16vh;
+  position: relative;
+}
+</style>

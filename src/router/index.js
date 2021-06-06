@@ -10,6 +10,7 @@ import SchoolFile from '../views/user/SchoolFile.vue'
 import articles from '../views/user/articles.vue'
 import setting from '../views/user/settings.vue'
 import archive from '../views/user/archive.vue'
+import archiveId from '../views/user/archiveId.vue'
 
 
 
@@ -115,6 +116,17 @@ const routes = [
       else next();
       } 
   },
+  {
+    path: '/archiveId',
+    name: 'archiveId',
+    component: archiveId,
+    beforeEnter:(to, from, next) => {
+      const isAuthenticated = localStorage.getItem('Id') ? true: false;
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
+      else next();
+      } 
+  },
+
 
   {
     path: '/about',

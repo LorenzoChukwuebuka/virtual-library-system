@@ -6,8 +6,8 @@
 
 	 
         <div class="row">
-    <div class="col s6 offset-s3">
-      <div class="card grey z-depth-5">
+    <div class="col s5 offset-s3">
+      <div class="card lilac z-depth-5">
         <div class="card-content black-text">
           <span  class="card-title">Login to IFT library to continue </span>
 
@@ -45,6 +45,8 @@
       </div>
     </div>
   </div>
+
+   
   </div>
    
   
@@ -55,10 +57,12 @@ import axios from 'axios';
 axios.defaults.crossDomain = true;
 import M from 'materialize-css';
 import NavBar from '../components/navbar.vue'
+import Foot from '../components/footer.vue'
 export default {
 	name: 'Home',
 	components:{
-       NavBar
+       NavBar,
+	   Foot
 	},
 	data(){
 		return{
@@ -66,7 +70,7 @@ export default {
 				username:"",
 				password:""
 			},
-			type:0
+			type:null
 		}
 	},
 	created(){
@@ -88,26 +92,30 @@ export default {
 		  e.preventDefault()
 		  axios.post('http://localhost:5000/api/login',this.form)
 		  .then(res=>{
-			  if(res.data[0].type == 0){
+            this.type = res.data[0].type
+
+		 if(res.data === 500){
+				 M.toast({html:"Details does not match our records"})
+			 }else if(this.type == 0){
 				  this.$router.push('/adminDash')
 				    localStorage.setItem('Id', res.data[0].Id)
 					localStorage.setItem('username',res.data[0].name)
-
-				 
 					
-			  }else if(res.data[0].type == 1){
+				}else if(this.type == 1){
 				  this.$router.push('/Userhome')
 			   		localStorage.setItem('Id', res.data[0].Id)
 					localStorage.setItem('username',res.data[0].name)
-			  }else{
-				  M.toast({html:"Details does not match with our records"})
-			  }
+			  } 
+ 
+			  
+
+			  
 
 
 		  })
 		  .catch(err=>{
 			  console.log(err)
-		  })
+		  }) 
 
 		  
 	  }

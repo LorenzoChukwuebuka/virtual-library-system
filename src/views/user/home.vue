@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <div class="navbar-fixed">
-      <Nav />
+      <Nav @search="getCat" :category="category" />
     </div>
 
     <div class="container">
@@ -137,8 +137,7 @@ export default {
     return {
       category: [],
       files: [],
-
-	  articles:[]
+      articles:[]
     };
   },
   mounted() {
@@ -146,14 +145,22 @@ export default {
     this.getCat();
   },
   methods: {
-    getCat() {
+    getCat(search) {
       axios.get("http://localhost:5000/api/admin/category").then((res) => {
-        this.category = res.data;
-      });
+         if(search){
+			 console.log(search)
+		 }else{
+             this.category = res.data;
+		 }
+       
+		  
+      
+       })
     },
     showFiles(Id) {
       axios.get(`http://localhost:5000/api/user/files/${Id}`).then((res) => {
         this.files = res.data;
+        
       });
     },
 	showArticles(Id){
@@ -162,7 +169,9 @@ export default {
 		   this.articles = res.data
 	   })
 	},
-    getFileDet(id) {},
+    getSearch(){
+
+	}
 
   },
 };

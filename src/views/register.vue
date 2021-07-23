@@ -7,7 +7,7 @@
 	 
 	 <div class="row">
 		<div class="col s6 offset-s3">
-			<div class="card grey z-depth-5">
+			<div class="card lilac z-depth-5">
 					<div class="card-content black-text">
 					<span class="card-title">Sign Up</span>
 						<form>
@@ -114,8 +114,10 @@ export default {
 				 .then(res=>{
 					 if(res.data == 200){
 						 M.toast({html:'User created successfully'})
+						 this.$router.push('Userhome')
 					 }else if(res.data == 401){
 						 M.toast({html:"User already exists"})
+						 
 					 }
 				 })
 				 .catch(err=>{

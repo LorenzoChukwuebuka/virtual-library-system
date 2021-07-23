@@ -73,8 +73,8 @@ components:{
 data(){
     return{
          file_Uri:"",
-		filename:null,
-		pdf_uri:"",
+	    filename:null,
+	     pdf_uri:"",
         post:"",
         title:""
     }

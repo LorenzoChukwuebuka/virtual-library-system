@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <div class="navbar-fixed">
-      <Nav @search="getCat" :category="category" />
+      <Nav />
     </div>
 
     <div class="container">
@@ -37,10 +37,9 @@
               <div class="col s12">
                 <div class="card blue">
                   <div class="card-content black-text">
-                    <span class="card-title"> <h4>Books and Files </h4> </span>
-                    
-					 
-					   <ul class="collapsible popout">
+                    <span class="card-title"> <h4>Books and Files</h4> </span>
+
+                    <ul class="collapsible popout">
                       <li v-for="cat in category" :key="cat.Id">
                         <div
                           class="collapsible-header"
@@ -49,14 +48,18 @@
                           <i class="material-icons"> add </i> {{ cat.category }}
                         </div>
                         <div class="collapsible-body">
-                          <ul class="collection" v-for="title in files" :key="title.Id">
+                          <ul
+                            class="collection"
+                            v-for="title in files"
+                            :key="title.Id"
+                          >
                             <li class="collection-item">
                               <router-link
                                 :to="{
                                   name: 'SchoolFile',
-                                  params: {
-                                    bookname: title.fileName,
-                                  },
+                                  query: {
+                                    bookname: title.fileName
+                                  }
                                 }"
                               >
                                 {{ title.Title }} || {{ title.fileType }}
@@ -66,47 +69,49 @@
                         </div>
                       </li>
                     </ul>
-				       
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-                 
-				 <!-- Journals -->
+          <!-- Journals -->
 
-		<div class="header">
+          <div class="header">
             <div class="row">
               <div class="col s12">
                 <div class="card blue">
                   <div class="card-content black-text">
-                    <span class="card-title"> <h4>Journals and Articles </h4> </span>
+                    <span class="card-title">
+                      <h4>Journals and Articles</h4>
+                    </span>
 
                     <ul class="collapsible popout">
                       <li v-for="cat in category" :key="cat.Id">
-                        <div 
+                        <div
                           class="collapsible-header"
                           @click="showArticles(cat.Id)"
                         >
                           <i class="material-icons"> add </i> {{ cat.category }}
                         </div>
                         <div class="collapsible-body">
-                          <ul class="collection" v-for="art in articles" :key="art.Id" >
+                          <ul
+                            class="collection"
+                            v-for="art in articles"
+                            :key="art.Id"
+                          >
                             <li class="collection-item">
-								  <router-link
+                              <router-link
                                 :to="{
                                   name: 'articles',
                                   params: {
                                     post: art.post,
                                     title: art.Title
-							
-                                  },
+                                  }
                                 }"
                               >
-                                {{ art.Title }} || {{art.type}}
+                                {{ art.Title }} || {{ art.type }}
                               </router-link>
-                             
                             </li>
                           </ul>
                         </div>
@@ -117,64 +122,55 @@
               </div>
             </div>
           </div>
-          </div>
         </div>
       </div>
     </div>
-  
+  </div>
 </template>
 <script>
-import axios from "axios";
-axios.defaults.crossDomain = true;
-import M from "materialize-css";
-import Nav from "../../components/userComponent/navbar.vue";
+import axios from 'axios'
+axios.defaults.crossDomain = true
+import M from 'materialize-css'
+import Nav from '../../components/userComponent/navbar.vue'
 export default {
-  name: "Userhome",
+  name: 'Userhome',
   components: {
-    Nav,
+    Nav
   },
-  data() {
+  data () {
     return {
       category: [],
       files: [],
-      articles:[]
-    };
+      articles: []
+    }
   },
-  mounted() {
-    M.AutoInit();
-    this.getCat();
+  mounted () {
+    M.AutoInit()
+    this.getCat()
   },
   methods: {
-    getCat(search) {
-      axios.get("http://localhost:5000/api/admin/category").then((res) => {
-         if(search){
-			 console.log(search)
-		 }else{
-             this.category = res.data;
-		 }
-       
-		  
-      
-       })
+    getCat (search) {
+      axios.get('http://localhost:5000/api/admin/category').then(res => {
+        if (search) {
+          console.log(search)
+        } else {
+          this.category = res.data
+        }
+      })
     },
-    showFiles(Id) {
-      axios.get(`http://localhost:5000/api/user/files/${Id}`).then((res) => {
-        this.files = res.data;
-        
-      });
+    showFiles (Id) {
+      axios.get(`http://localhost:5000/api/user/files/${Id}`).then(res => {
+        this.files = res.data
+      })
     },
-	showArticles(Id){
-       axios.get(`http://localhost:5000/api/user/articles/${Id}`)
-	   .then(res=>{
-		   this.articles = res.data
-	   })
-	},
-    getSearch(){
-
-	}
-
-  },
-};
+    showArticles (Id) {
+      axios.get(`http://localhost:5000/api/user/articles/${Id}`).then(res => {
+        this.articles = res.data
+      })
+    },
+    getSearch () {}
+  }
+}
 </script>
 
 <style scoped>
@@ -183,7 +179,7 @@ export default {
 }
 
 #home {
-  background-image: url("~@/assets/img/libray.jpg");
+  background-image: url('~@/assets/img/libray.jpg');
   background-position: center;
   background-size: cover;
   height: 100vh;

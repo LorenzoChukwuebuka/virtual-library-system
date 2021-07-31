@@ -71,10 +71,10 @@ export default {
     }
   },
   created() {
-      if(this.$route.params.bookname === undefined){
+      if(this.$route.query.bookname === undefined){
 		  this.$router.push('/Userhome')
 	  }
-         this.filename = this.$route.params.bookname
+         this.filename = this.$route.query.bookname
 		 
 	      
 		  if(this.filename && this.filename.match(/\.(mp4|mkv)$/))
